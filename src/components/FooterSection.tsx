@@ -26,8 +26,8 @@ export const FooterSection = () => {
 
         <div className="mt-8 pt-8 border-t border-border flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center">
-              <span className="text-primary font-bold text-sm">EHL</span>
+            <div className="w-12 h-12 bg-primary/10 rounded flex items-center justify-center border border-border">
+              <span className="text-primary font-bold text-xs">🏠</span>
             </div>
             <span className="text-sm text-muted-foreground">Equal Housing Lender</span>
           </div>

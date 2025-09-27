@@ -10,7 +10,7 @@ const products = [
     link: "See U.S. Bank checking accounts",
   },
   {
-    title: "Savings accounts",
+    title: "Savings accounts", 
     description: "Meet your savings goals and earn interest with U.S. Bank savings and money market options that can help put your financial goals within reach.",
     icon: PiggyBank,
     link: "See U.S. Bank savings accounts",
@@ -47,18 +47,18 @@ export const BankingProducts = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <Card key={index} className="hover:shadow-lg transition-shadow border-border">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <product.icon className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{product.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardTitle className="text-xl text-foreground">{product.title}</CardTitle>
+                <CardDescription className="text-muted-foreground leading-relaxed">
                   {product.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="link" className="p-0 h-auto text-primary hover:text-primary/80">
+                <Button variant="link" className="p-0 h-auto text-primary hover:text-primary/80 font-medium">
                   {product.link}
                 </Button>
               </CardContent>

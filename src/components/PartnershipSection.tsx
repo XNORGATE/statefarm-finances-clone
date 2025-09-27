@@ -1,10 +1,15 @@
+import partnershipLogos from "@/assets/partnership-logos.png";
+
 export const PartnershipSection = () => {
   return (
     <section className="bg-secondary py-16">
       <div className="container mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-8 mb-8">
-          <div className="text-primary text-2xl font-bold">State Farm</div>
-          <div className="text-accent text-2xl font-bold">US Bank</div>
+        <div className="flex items-center justify-center mb-8">
+          <img 
+            src={partnershipLogos} 
+            alt="State Farm and US Bank Partnership" 
+            className="h-16 w-auto"
+          />
         </div>
         
         <h2 className="text-3xl font-bold text-foreground mb-6">
