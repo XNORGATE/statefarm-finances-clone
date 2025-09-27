@@ -2,7 +2,7 @@ import partnershipLogos from "@/assets/partnership-logos.png";
 
 export const PartnershipSection = () => {
   return (
-    <section className="bg-secondary py-16">
+    <section className="py-16" style={{ backgroundColor: 'hsl(39 100% 94%)' }}>
       <div className="container mx-auto px-6 text-center">
         <div className="flex items-center justify-center mb-8">
           <img 

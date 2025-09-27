@@ -1,5 +1,3 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { CreditCard, PiggyBank, Landmark, TrendingUp, DollarSign, Building } from "lucide-react";
 
 const products = [
@@ -45,24 +43,24 @@ export const BankingProducts = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-16">
           {products.map((product, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-border">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <product.icon className="w-6 h-6 text-primary" />
+            <div key={index} className="space-y-4">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <product.icon className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl text-foreground">{product.title}</CardTitle>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {product.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="link" className="p-0 h-auto text-primary hover:text-primary/80 font-medium">
-                  {product.link}
-                </Button>
-              </CardContent>
-            </Card>
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold text-foreground">{product.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {product.description}
+                  </p>
+                  <a href="#" className="text-primary hover:text-primary/80 underline font-medium">
+                    {product.link}
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
