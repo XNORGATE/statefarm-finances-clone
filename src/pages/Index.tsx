@@ -4,6 +4,7 @@ import { PartnershipSection } from "@/components/PartnershipSection";
 import { BankingProducts } from "@/components/BankingProducts";
 import { AgentSection } from "@/components/AgentSection";
 import { FooterSection } from "@/components/FooterSection";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <AgentSection />
       </main>
       <FooterSection />
+      <CookieConsent />
     </div>
   );
 };

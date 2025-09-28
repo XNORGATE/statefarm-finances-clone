@@ -1,8 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import stateFarmLogo from "@/assets/state-farm-logo.png";
+import { useState } from "react";
+import { ContactModal } from "./ContactModal";
+import { AdminPanel } from "./AdminPanel";
 
 export const StateFarmHeader = () => {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  if (showAdmin) {
+    return (
+      <div>
+        <div className="bg-sf-red text-white p-2 text-center">
+          <button onClick={() => setShowAdmin(false)} className="underline">
+            ← Back to Main Site
+          </button>
+        </div>
+        <AdminPanel />
+      </div>
+    );
+  }
+
   return (
     <header className="bg-background border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
@@ -30,9 +49,23 @@ export const StateFarmHeader = () => {
         <div className="flex items-center space-x-2">
           <div className="hidden md:flex items-center space-x-2">
             <Button variant="ghost" size="sm" className="text-xs">Search</Button>
-            <Button variant="ghost" size="sm" className="text-xs">Help</Button>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-xs"
+              onClick={() => setContactModalOpen(true)}
+            >
+              Help
+            </Button>
             <Button variant="ghost" size="sm" className="text-xs">Español</Button>
-            <Button variant="outline" size="sm" className="text-xs text-primary border-primary hover:bg-primary hover:text-white">Log in</Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="text-xs text-primary border-primary hover:bg-primary hover:text-white"
+              onClick={() => setShowAdmin(true)}
+            >
+              Admin Panel
+            </Button>
           </div>
           
           {/* Mobile menu button */}
@@ -46,6 +79,11 @@ export const StateFarmHeader = () => {
       <div className="container mx-auto px-6 py-2 text-sm text-muted-foreground">
         <span>Finances</span> <span className="mx-2">›</span> <span className="text-foreground">Banking</span>
       </div>
+      
+      <ContactModal 
+        isOpen={contactModalOpen} 
+        onClose={() => setContactModalOpen(false)} 
+      />
     </header>
   );
 };

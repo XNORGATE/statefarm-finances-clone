@@ -1,4 +1,6 @@
 import { CreditCard, PiggyBank, Landmark, TrendingUp, DollarSign, Building } from "lucide-react";
+import { useState } from "react";
+import { AccountModal } from "./AccountModal";
 
 const products = [
   {
@@ -40,6 +42,14 @@ const products = [
 ];
 
 export const BankingProducts = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedAccountType, setSelectedAccountType] = useState("");
+
+  const handleOpenAccount = (productTitle: string) => {
+    setSelectedAccountType(productTitle);
+    setModalOpen(true);
+  };
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
@@ -55,15 +65,24 @@ export const BankingProducts = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {product.description}
                   </p>
-                  <a href="#" className="text-primary hover:text-primary/80 underline font-medium">
-                    {product.link}
-                  </a>
+                  <button 
+                    onClick={() => handleOpenAccount(product.title)}
+                    className="text-primary hover:text-primary/80 underline font-medium"
+                  >
+                    Open Account
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      
+      <AccountModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        accountType={selectedAccountType}
+      />
     </section>
   );
 };
